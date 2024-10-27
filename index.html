@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>The Word Dictionary</title>
+
+  <style>
+    body{
+      background-color: #E9E3B4;
+      color: #A25379;
+    }
+    .heading{
+      margin-top: 50px;
+      font-size: 65px;
+      font-weight: bold;
+    }
+    .title{
+      font-size: 40px;
+    }
+    .main-container{
+      margin-left: 700px;
+    }
+    #word-text{
+      font-size: 30px;
+      font-weight: 300;
+    }
+    .form-input{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      height: 50px;
+      width: 400px;
+      border-radius: 5px;
+      font-size: 20px;
+      text-transform: capitalize;
+    }
+    .btn{
+      background-color: blue;
+      color: white;
+      height: 35px;
+      width: 100px;
+      font-size: 20px;
+      border-radius: 7px;
+    }
+    ul{
+      list-style-type: decimal;
+    }
+    p{
+      font-size: 30px;
+      text-transform: capitalize;
+    }
+  </style>
+</head>
+
+<body>
+  <center><h2 class="heading">The Dictionary</h2></center>
+  
+  <div class="main-container">
+    <h2 class="title">Search For the Word In the Dictionary</h2>
+    <form>
+      <div class="form-group">
+        <label for="word" id="word-text">Enter the Word you want to Search</label><br/>
+        <input type="text" class="form-input" id="word" placeholder="Enter the Word to Search">
+      </div>
+      <button id="submit" type="submit" class="btn">Submit</button>
+    </form>
+
+    <h2 class="title">Results</h2>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    submit.addEventListener("click", (e) => {
+      e.preventDefault()
+      let url = `http://localhost:3000/searchword?entry=${word.value}`;
+      let r = fetch(url);
+
+      r.then((response) => {
+        return response.json();
+      }).then((resp) => {
+        let htmlstr = `You searched for the word: <b>${resp.entry}</b> <br>
+        Here are some of the meanings and associations to the word ${resp.entry} :<ul>`
+
+          for (let index = 0; index < resp.theme.length; index++) {
+             htmlstr += `<li> ${resp.theme[index]} </li>`
+            
+          }
+          `</ul>`
+        result.innerHTML = htmlstr;
+        return resp
+      })
+    })
+
+
+  </script>
+
+</body>
+
+</html>
