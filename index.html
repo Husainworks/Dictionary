@@ -8,26 +8,31 @@
   <title>The Word Dictionary</title>
 
   <style>
-    body{
+    body {
       background-color: #E9E3B4;
       color: #A25379;
     }
-    .heading{
+
+    .heading {
       margin-top: 50px;
       font-size: 65px;
       font-weight: bold;
     }
-    .title{
+
+    .title {
       font-size: 40px;
     }
-    .main-container{
+
+    .main-container {
       margin-left: 700px;
     }
-    #word-text{
+
+    #word-text {
       font-size: 30px;
       font-weight: 300;
     }
-    .form-input{
+
+    .form-input {
       margin-top: 10px;
       margin-bottom: 10px;
       height: 50px;
@@ -36,7 +41,8 @@
       font-size: 20px;
       text-transform: capitalize;
     }
-    .btn{
+
+    .btn {
       background-color: blue;
       color: white;
       height: 35px;
@@ -44,10 +50,12 @@
       font-size: 20px;
       border-radius: 7px;
     }
-    ul{
+
+    ul {
       list-style-type: decimal;
     }
-    p{
+
+    p {
       font-size: 30px;
       text-transform: capitalize;
     }
@@ -55,13 +63,15 @@
 </head>
 
 <body>
-  <center><h2 class="heading">The Dictionary</h2></center>
-  
+  <center>
+    <h2 class="heading">The Dictionary</h2>
+  </center>
+
   <div class="main-container">
     <h2 class="title">Search For the Word In the Dictionary</h2>
     <form>
       <div class="form-group">
-        <label for="word" id="word-text">Enter the Word you want to Search</label><br/>
+        <label for="word" id="word-text">Enter the Word you want to Search</label><br />
         <input type="text" class="form-input" id="word" placeholder="Enter the Word to Search">
       </div>
       <button id="submit" type="submit" class="btn">Submit</button>
@@ -83,11 +93,11 @@
         let htmlstr = `You searched for the word: <b>${resp.entry}</b> <br>
         Here are some of the meanings and associations to the word ${resp.entry} :<ul>`
 
-          for (let index = 0; index < resp.theme.length; index++) {
-             htmlstr += `<li> ${resp.theme[index]} </li>`
-            
-          }
-          `</ul>`
+        for (let index = 0; index < resp.theme.length; index++) {
+          htmlstr += `<li> ${resp.theme[index]} </li>`
+
+        }
+        `</ul>`
         result.innerHTML = htmlstr;
         return resp
       })

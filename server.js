@@ -8,8 +8,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"))
 });
 
-
-
 app.get('/searchword', (req, res) => {
     // res.send('Hello World!')
     console.log(req.query)
@@ -30,25 +28,6 @@ app.get('/searchword', (req, res) => {
     }).catch(function (error) {
         console.error(error);
     });
-
-    // let response = {}
-    // response.data = {
-    //     entry: 'bye',
-    //     request: 'bye',
-    //     response: 'bye',
-    //     theme: [
-    //       'after', 'following',
-    //       'next',  'close',
-    //       'end',   'stop',
-    //       'hello', 'welcome',
-    //       'hi'
-    //     ],
-    //     version: '7.5.7',
-    //     author: 'twinword inc.',
-    //     email: 'help@twinword.com',
-    //     result_code: '200',
-    //     result_msg: 'Success'
-    //   }
 })
 
 app.listen(port, () => {
